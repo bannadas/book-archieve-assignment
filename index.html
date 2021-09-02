@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body class="bg-gray">
-    <h2 class="text-center text-success">Search your book here</h2>
+    <h2 class="text-center text-success my-4 ">Search your book here</h2>
 
     <!-- book search area -->
     <div class="input-group mb-3 w-50 mx-auto">
@@ -19,18 +19,19 @@
       </div>
 
       <!-- spinner -->
-      <!-- <div class="text-center m-5" id="book-spinner">
+      <div class="d-flex d-none justify-content-center">
         <div class="spinner-border" role="status">
-
+          <span class="visually-hidden">Loading...</span>
         </div>
-      </div> -->
+      </div>
+      
 
       <!-- error div -->
       
-        <div id="error" class="text-center ">
+        <div id="error" class="text-center text-danger m-2 fw-bold">
 
         </div>
-      
+
 
     <!-- books -->
       <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">

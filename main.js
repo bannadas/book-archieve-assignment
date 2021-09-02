@@ -21,6 +21,7 @@ const displaySearchResult = books => {
     }
     else{
         errorDiv.innerText = "";
+        errorDiv.innerText = books.length + 'results found';
     }
 //    const bookSpinner =document.getElementById('book-spinner');
 //    bookSpinner.style.display = 'none';
@@ -35,8 +36,8 @@ const displaySearchResult = books => {
                   <div class="card-body">
                       <h5 class="card-title" >Book Title: ${book.title}</h5>
                       <h6 class="card-text"> Author name: ${book.author_name}</h6>
-                      <p class="card-text"> Publisher Name: ${book.publisher[0]}</p>
-                      <p class="card-text"> Publish Date: ${book.publish_date[0]}</p>
+                      <p class="card-text"> Publisher Name: ${book.publisher}</p>
+                      <p class="card-text"> Publish Year: ${book.publish_year}</p>
                       
                   </div>
               </div>
