@@ -21,9 +21,9 @@ const displaySearchResult = books => {
 
     // function for number of results
     const showResultNumber = () => { 
-        resultNumber.innerText =books.length + 'results found';  
+        resultNumber.innerText =books.length + ' results found';  
     };
-    
+
     resultNumber.innerText = "";
 
     // error handling
@@ -34,10 +34,7 @@ const displaySearchResult = books => {
         errorDiv.innerText = "";
         showResultNumber();
     }
-    
-
-    
-
+  
 //  clear previous results
  searchResult.textContent = "";
 
@@ -58,7 +55,7 @@ const displaySearchResult = books => {
               </div>
         `;
         searchResult.appendChild(div);
-    })
+    });
 
-}
+};
 
