@@ -20,9 +20,11 @@ const searchBook = () => {
 const displaySearchResult = books => {
 
     // function for number of results
-    const showResultNumber = () => {
-        resultNumber.innerText =books.length + 'results found';
+    const showResultNumber = () => { 
+        resultNumber.innerText =books.length + 'results found';  
     };
+    
+    resultNumber.innerText = "";
 
     // error handling
     if(books.length === 0){  
@@ -32,6 +34,10 @@ const displaySearchResult = books => {
         errorDiv.innerText = "";
         showResultNumber();
     }
+    
+
+    
+
 //  clear previous results
  searchResult.textContent = "";
 
@@ -46,7 +52,7 @@ const displaySearchResult = books => {
                       <h5 class="card-title" >Book Title: ${book.title}</h5>
                       <h6 class="card-text"> Author name: ${book.author_name}</h6>
                       <p class="card-text"> Publisher Name: ${book.publisher}</p>
-                      <p class="card-text"> Publish Year: ${book.publish_year}</p>
+                      <p class="card-text"> Publish Year: ${book.first_publish_year}</p>
                       
                   </div>
               </div>
