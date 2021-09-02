@@ -1,12 +1,14 @@
 const searchInput = document.getElementById('search-input');
 const searchResult = document.getElementById('search-result');
 const errorDiv = document.getElementById('error');
+const resultNumber = document.getElementById('result-number');
 
 
 const searchBook = () => {
     const searchText = searchInput.value;
 //    clear input field
     searchInput.value = '';
+
  // load data
     const url = `https://openlibrary.org/search.json?q=${searchText}`;
     fetch(url)
@@ -14,18 +16,25 @@ const searchBook = () => {
     .then(data => displaySearchResult(data.docs));  
 }
 
-
+//  function for displaying book
 const displaySearchResult = books => {
+
+    // function for number of results
+    const showResultNumber = () => {
+        resultNumber.innerText =books.length + 'results found';
+    };
+
+    // error handling
     if(books.length === 0){  
         errorDiv.innerText = 'No result found';
     }
     else{
         errorDiv.innerText = "";
-        errorDiv.innerText = books.length + 'results found';
+        showResultNumber();
     }
-//    const bookSpinner =document.getElementById('book-spinner');
-//    bookSpinner.style.display = 'none';
+//  clear previous results
  searchResult.textContent = "";
+
     books.forEach(book => {
          console.log(book);
         const div = document.createElement('div');
