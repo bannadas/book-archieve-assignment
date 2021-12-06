@@ -5,38 +5,45 @@ const resultNumber = document.getElementById('result-number');
 
 const searchBook = () => {
     const searchText = searchInput.value;
-//    clear input field
+    //    clear input field
     searchInput.value = '';
 
- // load data
-    const url = `https://openlibrary.org/search.json?q=${searchText}`;
-    fetch(url)
-    .then(res => res.json())
-    .then(data => displaySearchResult(data.docs));  
+    if (searchText === "") {
+        errorDiv.innerText = "Please Write something to search."
+        searchResult.textContent = "";
+    } else {
+        // load data
+        const url = `https://openlibrary.org/search.json?q=${searchText}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displaySearchResult(data.docs));
+    }
+
+
 }
 //  function for displaying book
 const displaySearchResult = books => {
 
     // function for number of results
-    const showResultNumber = () => { 
-        resultNumber.innerText =books.length + ' results found';  
+    const showResultNumber = () => {
+        resultNumber.innerText = books.length + ' results found';
     };
     resultNumber.innerText = "";
 
     // error handling
-    if(books.length === 0){  
+    if (books.length === 0) {
+        errorDiv.innerText = "";
         errorDiv.innerText = 'No result found';
     }
-    else{
+    else {
         errorDiv.innerText = "";
         showResultNumber();
     }
-  
-//  clear previous results
- searchResult.textContent = "";
+
+    //  clear previous results
+    searchResult.textContent = "";
 
     books.forEach(book => {
-         console.log(book);
         const div = document.createElement('div');
         div.classList.add('col-md-3');
         div.innerHTML = `
